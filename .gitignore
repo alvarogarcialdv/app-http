@@ -1,0 +1,17 @@
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editores e IDE
+*.swp
+*~
+.idea/
+.vscode/
+
+# Configuración local, herramientas y secretos
+.env
+.env.*
+!.env.example
+
+# Archivos generados durante la práctica
+*.log

@@ -1,0 +1,75 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: #202124;
+  background: #f4f6f8;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  width: min(42rem, calc(100% - 2rem));
+  margin: 3rem auto;
+  padding: 2rem;
+  box-sizing: border-box;
+  background: white;
+  border: 1px solid #d7dce1;
+  border-radius: 0.5rem;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+a {
+  color: #0759a5;
+}
+
+.campo {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 0.55rem;
+  box-sizing: border-box;
+  font: inherit;
+  border: 1px solid #8b949e;
+  border-radius: 0.25rem;
+}
+
+button {
+  padding: 0.6rem 1rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+code {
+  font-family: ui-monospace, monospace;
+}
+
+.detalle {
+  color: #46515c;
+}
+
+.error {
+  color: #a40e26;
+  font-weight: 600;
+}
+
+dt {
+  font-weight: 700;
+}
+
+dd {
+  margin-bottom: 0.75rem;
+}

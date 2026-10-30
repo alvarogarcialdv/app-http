@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Servidor de pruebas HTTP</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <main>
+    <h1>Servidor de pruebas HTTP</h1>
+    <p>Recursos sencillos para analizar peticiones y respuestas durante la práctica.</p>
+
+    <nav aria-label="Recursos de la práctica">
+      <ul>
+        <li><a href="formularioGET.html">Formulario GET</a></li>
+        <li><a href="formularioPOST.html">Formulario POST</a></li>
+        <li><a href="cookies.html">Cookies creadas con JavaScript</a></li>
+        <li><a href="cookies.php">Cookie creada por el servidor con PHP</a></li>
+        <li><a href="redireccion.php">Redirección HTTP hacia index.html</a></li>
+        <li><a href="eco.php?nombre=Ana">Eco JSON de una petición GET</a></li>
+      </ul>
+    </nav>
+
+    <h2>Recurso para curl</h2>
+    <p>
+      <code>procesar.php</code> recibe mediante POST los campos
+      <code>nombre</code> y <code>curso</code>.
+    </p>
+
+    <h2>Recursos para analizar curl</h2>
+    <ul>
+      <li><code>redireccion.php</code> devuelve una redirección temporal.</li>
+      <li><code>eco.php</code> devuelve en JSON el método, los parámetros, los datos del formulario y las cabeceras recibidas.</li>
+    </ul>
+  </main>
+</body>
+</html>

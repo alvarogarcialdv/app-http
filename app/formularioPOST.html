@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formulario POST</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <main>
+    <p><a href="index.html">Volver al inicio</a></p>
+    <h1>Formulario enviado mediante POST</h1>
+    <p>Al enviarlo, los datos viajarán en el cuerpo de la petición HTTP.</p>
+
+    <form method="post" action="datosPOST.php" accept-charset="UTF-8">
+      <div class="campo">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" name="nombre" type="text" maxlength="60" required>
+      </div>
+
+      <div class="campo">
+        <label for="edad">Edad</label>
+        <input id="edad" name="edad" type="number" min="0" max="130" required>
+      </div>
+
+      <button type="submit">Enviar mediante POST</button>
+    </form>
+  </main>
+</body>
+</html>

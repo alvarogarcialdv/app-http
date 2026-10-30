@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cookies creadas con JavaScript</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <main>
+    <p><a href="index.html">Volver al inicio</a></p>
+    <h1>Cookies creadas en el navegador</h1>
+    <p id="saludo"></p>
+    <p id="contador"></p>
+
+    <p class="detalle">
+      Estas cookies las crea JavaScript mediante <code>document.cookie</code>. Por eso,
+      la respuesta HTTP de esta página no contiene una cabecera <code>Set-Cookie</code>.
+    </p>
+
+    <button id="borrar" type="button">Borrar las cookies de este ejemplo</button>
+    <p><a href="cookies.php">Abrir el ejemplo de cookie creada por PHP</a></p>
+  </main>
+
+  <script>
+    'use strict';
+
+    function obtenerCookie(nombre) {
+      const prefijo = `${encodeURIComponent(nombre)}=`;
+      const cookie = document.cookie
+        .split('; ')
+        .find((elemento) => elemento.startsWith(prefijo));
+
+      return cookie ? decodeURIComponent(cookie.substring(prefijo.length)) : null;
+    }
+
+    function guardarCookie(nombre, valor) {
+      const treintaDias = 30 * 24 * 60 * 60;
+      document.cookie = `${encodeURIComponent(nombre)}=${encodeURIComponent(valor)}; Max-Age=${treintaDias}; Path=/; SameSite=Lax`;
+    }
+
+    function borrarCookie(nombre) {
+      document.cookie = `${encodeURIComponent(nombre)}=; Max-Age=0; Path=/; SameSite=Lax`;
+    }
+
+    let visitante = obtenerCookie('visitante');
+    if (visitante === null) {
+      visitante = window.prompt('¿Cómo te llamas?', 'Visitante');
+      visitante = visitante && visitante.trim() ? visitante.trim() : 'Visitante';
+      guardarCookie('visitante', visitante);
+    }
+
+    const visitasAnteriores = Number.parseInt(obtenerCookie('visitas_js') ?? '0', 10);
+    const visitas = Number.isNaN(visitasAnteriores) ? 1 : visitasAnteriores + 1;
+    guardarCookie('visitas_js', String(visitas));
+
+    document.getElementById('saludo').textContent = `Hola, ${visitante}.`;
+    document.getElementById('contador').textContent = visitas === 1
+      ? 'Esta es tu primera visita.'
+      : `Has visitado esta página ${visitas} veces.`;
+
+    document.getElementById('borrar').addEventListener('click', () => {
+      borrarCookie('visitante');
+      borrarCookie('visitas_js');
+      window.location.reload();
+    });
+  </script>
+</body>
+</html>
